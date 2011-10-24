@@ -1,0 +1,23 @@
+<%= form_tag({:action => 'create', :status=>4}) do %>
+  <table width="100%">
+    <tr>
+      <th>Beneficiary Details</th>
+      <th>Amount</th>
+      <th>Rate</th>
+      <th>Period</th><th>
+        <input type='checkbox' name='checkall' onclick='checkedAll();'>
+      </th>
+    </tr>
+    <% @publishedlist.each do |b| %>
+      <tr>
+        <td><%= b.name %></td>
+        <%= fields_for "beneficiaryloan[#{b.id}]" do |bloan| %> 
+          <td> <%= bloan.text_field :amount%></td>
+          <td> <%= bloan.text_field :rate%></td>
+          <td> <%= bloan.text_field :period%></td>
+        <% end %> 
+        <td><%= check_box_tag "benificiary_ids[]",b.id, :name => "benificiary_ids[]"%>     </td>
+      </tr>
+    <% end %>
+  </table> <%= submit_tag "Approve", :class=>'form_buttons'  %>
+<% end %>
