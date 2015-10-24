@@ -29,3 +29,20 @@ gem 'mysql2'
 # group :development, :test do
 #   gem 'webrat'
 # end
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'watchr', '0.7'
+  gem 'spork-rails', '4.0.0'
+  gem 'pry'
+  gem 'pry-rails'
+end
+
+group :test do
+  # Pretty printed tests output
+  gem 'turn', :require => false
+  gem 'faker' 
+  gem 'capybara'
+  gem 'simplecov', :require => false
+  gem 'rspec_junit_formatter'
+end
